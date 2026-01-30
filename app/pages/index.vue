@@ -1,11 +1,11 @@
 <template>
     <div class="flex flex-col items-center justify-center gap-4 p-4 h-screen">
-        <div class="border-2 border-gray-200 rounded-lg p-5 w-md">
+        <div class="border-2 border-gray-200 rounded-lg p-5 w-[90%] md:w-md">
           <h2 class="text-center font-bold text-2xl my-2.5">Login</h2>
           
           <img :src="IMAGES.logoToamasina" alt="Capital économique" class="w-[30%] mx-auto">
           
-          <UForm>
+          <UForm @submit="submit">
             <UFormField label="Email :" name="email" class="my-6">
               <UInput 
                 v-model="state.email" 
@@ -18,7 +18,7 @@
               <UInput
                 v-model="state.password"
                 placeholder="Password"
-                :type="show ? 'text' : 'password'"
+                :type="showPassword ? 'text' : 'password'"
                 :ui="{ trailing: 'pe-1' }"
                 class="w-full"
               >
@@ -27,11 +27,11 @@
                     color="neutral"
                     variant="link"
                     size="sm"
-                    :icon="show ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-                    :aria-label="show ? 'Hide password' : 'Show password'"
-                    :aria-pressed="show"
+                    :icon="showPassword ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+                    :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                    :aria-pressed="showPassword"
                     aria-controls="password"
-                    @click="show = !show"
+                    @click="showPassword = !showPassword"
                   />
                 </template>
               </UInput>
@@ -46,10 +46,19 @@
 
 <script setup lang="ts">
 import { IMAGES } from '~/constants/assets';
+
+const authStore = useAuthStore()
+
 const state = reactive({
   email: '',
   password: ''
 })
 
-const show = ref<boolean>(false)
+const showPassword = ref<boolean>(false)
+
+const submit = ()=>{
+  if (authStore.conneted) {
+    authStore.logout()
+  }else authStore.login()
+}
 </script>
