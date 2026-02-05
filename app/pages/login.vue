@@ -63,7 +63,7 @@ const submit = ()=>{
     }else authStore.login()
     
     loading.value = false   
-    navigateTo('/dashboard')
+    navigateTo('/home')
   }, 3000)
 }
 </script>
