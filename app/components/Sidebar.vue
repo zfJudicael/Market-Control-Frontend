@@ -5,11 +5,12 @@
         </div>
         
         <div class="grow flex flex-col gap-1">
-            <NavigationMenu icon="i-lucide-home" label="Accueil" :active="true"/>
-            <NavigationMenu icon="i-lucide-store" label="Marchés" :active="false"/>
-            <NavigationMenu icon="i-lucide-book-user" label="Marchands" :active="false"/>
-            <NavigationMenu icon="i-lucide-book-open" label="Contrat" :active="false"/>
-            <NavigationMenu icon="i-lucide-users" label="Percepteur" :active="false"/>
+            <NavigationMenu icon="i-lucide-home" label="Accueil" to="index"/>
+            <NavigationMenu icon="i-lucide-store" label="Marchés" to="market"/>
+            <NavigationMenu icon="i-lucide-book-user" label="Marchands" to="merchant"/>
+            <NavigationMenu icon="i-lucide-book-open" label="Contrat" to="contract"/>
+            <NavigationMenu icon="i-lucide-users" label="Percepteur" to="collector"/>
+            <NavigationMenu icon="i-lucide-ticket" label="Tickets" to="ticket"/>
         </div>
     
         <div class="footer border-t-2 border-gray-400 flex justify-center">
@@ -20,47 +21,4 @@
 
 <script setup lang="ts">
 import { IMAGES } from '~/constants/assets';
-import type { NavigationMenuItem } from '@nuxt/ui'
-
-const items = ref<NavigationMenuItem[][]>([
-  [
-    {
-        label: 'Accueil',
-        icon: 'i-lucide-home',
-    },
-    {
-        label: 'Marchés',
-        icon: 'i-lucide-home',
-    },
-    {
-        label: 'Marchands',
-        icon: 'i-lucide-home',
-    },
-    {
-        label: 'Percepteur',
-        icon: 'i-lucide-home',
-    },
-    {
-        label: 'Contrats',
-        icon: 'i-lucide-home',
-    },
-    {
-      label: 'Guide',
-      icon: 'i-lucide-book-open',
-      children: [
-        {
-          label: 'Introduction',
-          description: 'Fully styled and customizable components for Nuxt.',
-          to: '/login',
-          icon: 'i-lucide-house'
-        },
-        {
-          label: 'Installation',
-          description: 'Learn how to install and configure Nuxt UI in your application.',
-          icon: 'i-lucide-cloud-download'
-        },
-      ]
-    },
-    ]
-])
 </script>

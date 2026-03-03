@@ -1,6 +1,6 @@
 <template>
-    <div class="home">
-        <h1>HOme</h1>
+    <div class="marketPage">
+        Market Page
     </div>
 </template>
 
