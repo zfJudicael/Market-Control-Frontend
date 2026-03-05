@@ -9,5 +9,10 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   ui: {
     colorMode: false
+  },
+  runtimeConfig: {
+    public: {
+      apiBaseURL: 'http://localhost:3001'
+    }
   }
 })
