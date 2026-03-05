@@ -20,6 +20,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.88"
+    "@iconify-json/lucide": "^1.2.88",
+    "sass-embedded": "^1.97.3"
   }
 }
